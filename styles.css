@@ -427,3 +427,25 @@ a.link-btn { display: inline-block; }
 .socials--drawer { margin-top: 8px; }
 .drawer { overflow-y: auto; gap: 24px; padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
 .drawer nav { gap: 12px; }
+
+/* Contact : grande carte + infos pratiques */
+.visit { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+.visit__map { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: var(--sand); box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.6); }
+.visit__map iframe { width: 100%; flex: 1; min-height: 600px; border: 0; display: block; filter: grayscale(1) contrast(1.05); }
+.visit__maplink { display: block; padding: 20px; text-align: center; background: var(--ink); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; transition: background .2s; }
+.visit__maplink:hover { background: #000; }
+.visit__info { border-radius: 24px; padding: 44px 40px; color: var(--cream); background: #161616 url('assets/texture/gris-ak-fonce.jpg') 0 0/auto; box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
+.visit__info h3 { font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 28px; }
+.visit__row { display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: start; padding: 20px 0; border-top: 1px dashed rgba(255,255,255,.16); }
+.visit__icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--ink); }
+.visit__icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.visit__row h4 { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--honey); margin: 4px 0 8px; }
+.visit__row p { margin: 0; color: rgba(246,241,233,.85); font-size: 16px; line-height: 1.6; }
+.visit__row a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.35); }
+.visit__row a:hover { border-color: #fff; }
+.visit__form { max-width: 760px; margin: 56px auto 0; }
+@media (max-width: 960px) {
+  .visit { grid-template-columns: minmax(0, 1fr); }
+  .visit__map iframe { min-height: 440px; }
+  .visit__info { padding: 34px 26px; }
+}
