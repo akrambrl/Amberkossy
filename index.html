@@ -50,7 +50,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <video class="hero__bg" autoplay muted loop playsinline preload="metadata" poster="assets/studio/hero-poster.jpg" aria-hidden="true">
+  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/studio/hero-poster.jpg" aria-hidden="true">
     <source src="assets/video/studio-hero.mp4" type="video/mp4">
   </video>
   <div class="hero__overlay"></div>
@@ -63,11 +63,6 @@
         <button class="btn btn--light" data-book>Réserver un cours</button>
         <a href="#prestations" class="btn btn--ghost-light">Découvrir les cours</a>
       </div>
-    </div>
-    <div class="hero__arch" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="metadata" poster="assets/studio/hero-poster.jpg">
-        <source src="assets/video/studio-hero.mp4" type="video/mp4">
-      </video>
     </div>
   </div>
   <a href="#intro" class="hero__scroll" aria-label="Défiler">↓</a>
@@ -399,6 +394,20 @@
       <button class="btn btn--dark" type="submit">Envoyer</button>
       <p class="form__ok" hidden>Merci ! Nous te répondons sous 24 h.</p>
     </form>
+  </div>
+  <div class="container">
+    <div class="map-card">
+      <iframe class="map-card__map" title="Plan d’accès au studio Amber Kossy"
+        src="https://www.google.com/maps?q=12+rue+des+Lumi%C3%A8res,+75011+Paris&amp;z=15&amp;output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div class="map-card__info">
+        <img src="assets/logo-ak-noir.png" alt="" class="map-card__logo">
+        <h3>Amber Kossy<br><em>Pilates Studio</em></h3>
+        <p>12 rue des Lumières<br>75011 Paris</p>
+        <p class="map-card__access">Métro à 3 min · Vélib’ devant le studio</p>
+        <a class="btn btn--dark btn--sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=12+rue+des+Lumi%C3%A8res,+75011+Paris" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+    </div>
   </div>
 </section>
 
