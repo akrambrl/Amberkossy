@@ -37,8 +37,8 @@
   }));
 
   /* ===== Planning ===== */
-  const COACHES = ['Amber', 'Kossy', 'Inès', 'Maëlle', 'Jade'];
-  const T = { mat: 'Mat Pilates', ref: 'Reformer', sculpt: 'Amber Sculpt', pre: 'Prénatal & Postnatal', stretch: 'Stretch & Mobility' };
+  const COACHES = ['Amber Kossy', 'Lina', 'Inès', 'Maëlle', 'Jade'];
+  const T = { mat: 'Mat Pilates', ref: 'Reformer', sculpt: 'Amber Kossy Sculpt', pre: 'Prénatal & Postnatal', stretch: 'Stretch & Mobility' };
   // [heure, type, niveau, coach index, places restantes]
   const WEEK = [
     [['07:15', T.ref, 'Tous niveaux', 0, 2], ['09:30', T.mat, 'Tous niveaux', 2, 6], ['12:30', T.sculpt, 'Intermédiaire', 1, 3], ['18:00', T.ref, 'Débutant', 3, 4], ['19:15', T.mat, 'Intermédiaire', 2, 5], ['20:15', T.stretch, 'Tous niveaux', 4, 8]],
