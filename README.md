@@ -20,7 +20,7 @@ python3 -m http.server 8000
 ```
 
 ## À personnaliser
-- Adresse, téléphone, email (`contact@amberkossy.fr`, aussi dans `STUDIO_EMAIL` de `script.js`), Instagram
+- Téléphone, email (`contact@amberkossy.fr`, aussi dans `STUDIO_EMAIL` de `script.js`), Instagram
 - Témoignages (contenus d'exemple)
 - Médias du studio : `assets/studio/` (photos), `assets/video/` (vidéo d'accueil + galerie), logo AK dans `assets/logo-ak-noir.png` / `logo-ak-blanc.png`
 - Le formulaire de contact ouvre un email pré-rempli vers `contact@amberkossy.fr`.
