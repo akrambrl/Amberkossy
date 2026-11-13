@@ -7,7 +7,7 @@
   <meta name="description" content="Amber Kossy, studio de Pilates : Mat Pilates, Reformer, cours privés, prénatal, stretch & formation. Réservez votre cours.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,600&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,16 +18,16 @@
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
       <span></span><span></span><span></span>
     </button>
-    <a href="#top" class="logo" aria-label="Amber Kossy — accueil">AMBER<span>KOSSY</span></a>
+    <a href="#top" class="logo" aria-label="Amber Kossy — accueil"><img class="logo__mark logo__mark--light" src="assets/logo-ak-blanc.png" alt=""><img class="logo__mark logo__mark--dark" src="assets/logo-ak-noir.png" alt=""><span class="logo__word">Amber Kossy<small>Pilates Studio</small></span></a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="#prestations">Prestations</a>
       <a href="#planning">Planning</a>
       <a href="#tarifs">Tarifs</a>
-      <a href="#approche">Le studio</a>
+      <a href="#studio">Le studio</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="btn btn--amber btn--sm" data-book>Réserver</button>
+    <button class="btn btn--dark btn--sm" data-book>Réserver</button>
   </div>
 </header>
 
@@ -38,27 +38,36 @@
     <a href="#prestations">Prestations</a>
     <a href="#planning">Planning</a>
     <a href="#tarifs">Tarifs</a>
-    <a href="#approche">Le studio</a>
+    <a href="#studio">Le studio</a>
     <a href="#nouveau">Nouveau ?</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
-  <button class="btn btn--amber" data-book>Réserver un cours</button>
+  <button class="btn btn--dark" data-book>Réserver un cours</button>
 </div>
 
 <main>
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero__media" style="background-image:url('assets/img/1518611012118-696072aa579a-2000.jpg')"></div>
+  <video class="hero__bg" autoplay muted loop playsinline preload="metadata" poster="assets/studio/hero-poster.jpg" aria-hidden="true">
+    <source src="assets/video/studio-hero.mp4" type="video/mp4">
+  </video>
   <div class="hero__overlay"></div>
-  <div class="hero__content">
-    <p class="eyebrow hero__eyebrow">Mat Pilates · Reformer · Cours privés</p>
-    <h1 class="hero__title">Strong feels<br>better in <em>Amber.</em></h1>
-    <p class="hero__lead">Un studio de Pilates chaleureux où chaque mouvement compte.<br>Plus forte, plus alignée, plus présente.</p>
-    <div class="hero__ctas">
-      <button class="btn btn--amber" data-book>Réserver un cours</button>
-      <a href="#prestations" class="btn btn--ghost-light">Découvrir les cours</a>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">Reformer · Mat Pilates · Cours privés</p>
+      <h1 class="hero__title">Strong feels<br>better in <em>Amber.</em></h1>
+      <p class="hero__lead">Un studio de Pilates intimiste, entre arches de lumière et machines Reformer. Plus forte, plus alignée, plus présente.</p>
+      <div class="hero__ctas">
+        <button class="btn btn--light" data-book>Réserver un cours</button>
+        <a href="#prestations" class="btn btn--ghost-light">Découvrir les cours</a>
+      </div>
+    </div>
+    <div class="hero__arch" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/studio/hero-poster.jpg">
+        <source src="assets/video/studio-hero.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
   <a href="#intro" class="hero__scroll" aria-label="Défiler">↓</a>
@@ -109,7 +118,7 @@
     <div class="cards">
       <!-- Mat -->
       <article class="card" data-cat="groupe">
-        <div class="card__img" style="background-image:url('assets/img/1591258370814-01609b341790-900.jpg')"><span class="tag">Collectif</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/accessoires.jpg');background-position:center 55%"><span class="tag">Collectif</span></div>
         <div class="card__body">
           <h3>Mat Pilates</h3>
           <p class="card__claim">Développe ta force. Améliore ton contrôle.</p>
@@ -121,7 +130,7 @@
 
       <!-- Reformer -->
       <article class="card" data-cat="groupe">
-        <div class="card__img" style="background-image:url('assets/reformer.svg')"><span class="tag">Collectif</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/reformer-cours.jpg');background-position:center 60%"><span class="tag">Collectif</span></div>
         <div class="card__body">
           <h3>Reformer</h3>
           <p class="card__claim">Plus de résistance. Plus de défi.</p>
@@ -133,7 +142,7 @@
 
       <!-- Reformer Sculpt -->
       <article class="card" data-cat="groupe">
-        <div class="card__img" style="background-image:url('assets/img/1599901860904-17e6ed7083a0-900.jpg')"><span class="tag">Intensif</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/sculpt.jpg');background-position:center 35%"><span class="tag">Intensif</span></div>
         <div class="card__body">
           <h3>Amber Sculpt</h3>
           <p class="card__claim">Le Pilates qui fait transpirer.</p>
@@ -169,7 +178,7 @@
 
       <!-- Cours privés -->
       <article class="card" data-cat="prive">
-        <div class="card__img" style="background-image:url('assets/img/1600881333168-2ef49b341f30-900.jpg')"><span class="tag">Sur-mesure</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/prive.jpg');background-position:center 20%"><span class="tag">Sur-mesure</span></div>
         <div class="card__body">
           <h3>Cours privés</h3>
           <p class="card__claim">Une approche pensée pour toi.</p>
@@ -181,7 +190,7 @@
 
       <!-- Duo -->
       <article class="card" data-cat="prive">
-        <div class="card__img" style="background-image:url('assets/img/1599447421416-3414500d18a5-900.jpg')"><span class="tag">Sur-mesure</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/duo.jpg');background-position:center 45%"><span class="tag">Sur-mesure</span></div>
         <div class="card__body">
           <h3>Duo &amp; Trio</h3>
           <p class="card__claim">Plus motivant à plusieurs.</p>
@@ -193,7 +202,7 @@
 
       <!-- Formation -->
       <article class="card" data-cat="pro">
-        <div class="card__img" style="background-image:url('assets/img/1588286840104-8957b019727f-900.jpg')"><span class="tag">Formation</span></div>
+        <div class="card__img" style="background-image:url('assets/studio/salle-reformers.jpg');background-position:center 40%"><span class="tag">Formation</span></div>
         <div class="card__body">
           <h3>Formation instructeur</h3>
           <p class="card__claim">Apprends à enseigner le Pilates.</p>
@@ -221,7 +230,7 @@
 <!-- ============ APPROCHE ============ -->
 <section class="section approach" id="approche">
   <div class="container approach__grid">
-    <div class="approach__img" style="background-image:url('assets/img/1591258370814-01609b341790-1200.jpg')"></div>
+    <div class="approach__img" style="background-image:url('assets/studio/monogramme-mur.jpg')"></div>
     <div class="approach__text">
       <p class="eyebrow eyebrow--light">L’approche Amber Kossy</p>
       <h2 class="title title--light">More than<br>a <em>workout.</em></h2>
@@ -230,8 +239,28 @@
       <ul class="pillars">
         <li><strong>Précision</strong><span>Des corrections individuelles, même en groupe.</span></li>
         <li><strong>Progression</strong><span>Des niveaux clairs pour évoluer en confiance.</span></li>
-        <li><strong>Chaleur</strong><span>Un lieu lumineux où l’on se sent bien.</span></li>
+        <li><strong>Sérénité</strong><span>Un lieu épuré, baigné de lumière douce.</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LE STUDIO (galerie) ============ -->
+<section class="section" id="studio">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Le lieu</p>
+        <h2 class="title">Bienvenue au <em>studio</em></h2>
+      </div>
+      <p class="section__aside">Arches de lumière, murs à la chaux et machines Reformer : un cocon pensé pour se concentrer sur l’essentiel, ton mouvement.</p>
+    </div>
+    <div class="gallery">
+      <figure class="gallery__item gallery__item--tall"><img src="assets/studio/salle-reformers.jpg" alt="La salle Reformer du studio Amber Kossy, éclairée par des arches lumineuses" loading="lazy"></figure>
+      <figure class="gallery__item gallery__item--video"><video autoplay muted loop playsinline preload="none" poster="assets/studio/duo.jpg" aria-label="Cours collectif sur Reformer"><source src="assets/video/studio-duo.mp4" type="video/mp4"></video></figure>
+      <figure class="gallery__item"><img src="assets/studio/monogramme-chrome.jpg" alt="Monogramme AK Amber Kossy" loading="lazy"></figure>
+      <figure class="gallery__item"><img src="assets/studio/accessoires.jpg" alt="Cercle de Pilates et haltères posés sur un Reformer" loading="lazy"></figure>
+      <figure class="gallery__item"><img src="assets/studio/halteres-marbre.jpg" alt="Haltères en marbre blanc" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -279,21 +308,21 @@
     <div class="prices" data-price-panel="mat">
       <div class="price"><h3>Cours d’essai</h3><p class="price__amount">15€</p><p>1 cours découverte, valable 1 mois. Première visite uniquement.</p><button class="btn btn--outline" data-book="Cours d'essai Mat">Choisir</button></div>
       <div class="price"><h3>À l’unité</h3><p class="price__amount">28€</p><p>1 cours collectif, valable 1 mois.</p><button class="btn btn--outline" data-book="Mat — à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">240€</p><p>Soit 24€ le cours. Valable 4 mois.</p><button class="btn btn--amber" data-book="Mat — carnet 10">Choisir</button></div>
+      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">240€</p><p>Soit 24€ le cours. Valable 4 mois.</p><button class="btn btn--light" data-book="Mat — carnet 10">Choisir</button></div>
       <div class="price"><h3>Illimité</h3><p class="price__amount">149€<small>/mois</small></p><p>Mat &amp; Stretch en illimité. Engagement 3 mois.</p><button class="btn btn--outline" data-book="Mat — illimité">Choisir</button></div>
     </div>
 
     <div class="prices" data-price-panel="reformer" hidden>
       <div class="price"><h3>Cours d’essai</h3><p class="price__amount">25€</p><p>1 cours découverte Reformer, valable 1 mois.</p><button class="btn btn--outline" data-book="Cours d'essai Reformer">Choisir</button></div>
       <div class="price"><h3>À l’unité</h3><p class="price__amount">39€</p><p>1 cours Reformer ou Sculpt, valable 1 mois.</p><button class="btn btn--outline" data-book="Reformer — à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">340€</p><p>Soit 34€ le cours. Valable 4 mois.</p><button class="btn btn--amber" data-book="Reformer — carnet 10">Choisir</button></div>
+      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">340€</p><p>Soit 34€ le cours. Valable 4 mois.</p><button class="btn btn--light" data-book="Reformer — carnet 10">Choisir</button></div>
       <div class="price"><h3>Amber Unlimited</h3><p class="price__amount">229€<small>/mois</small></p><p>Tous les cours collectifs en illimité. Engagement 3 mois.</p><button class="btn btn--outline" data-book="Amber Unlimited">Choisir</button></div>
     </div>
 
     <div class="prices" data-price-panel="prive" hidden>
       <div class="price"><h3>Bilan + 1ʳᵉ séance</h3><p class="price__amount">75€</p><p>Bilan postural et séance privée de 55 min.</p><button class="btn btn--outline" data-book="Bilan privé">Choisir</button></div>
       <div class="price"><h3>Privé à l’unité</h3><p class="price__amount">85€</p><p>Séance individuelle Mat ou Reformer.</p><button class="btn btn--outline" data-book="Privé à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Meilleur prix</span><h3>Pack 5 privés</h3><p class="price__amount">390€</p><p>Soit 78€ la séance. Valable 3 mois.</p><button class="btn btn--amber" data-book="Pack 5 privés">Choisir</button></div>
+      <div class="price price--featured"><span class="badge">Meilleur prix</span><h3>Pack 5 privés</h3><p class="price__amount">390€</p><p>Soit 78€ la séance. Valable 3 mois.</p><button class="btn btn--light" data-book="Pack 5 privés">Choisir</button></div>
       <div class="price"><h3>Duo / Trio</h3><p class="price__amount">110€</p><p>Par séance, à partager à 2 ou 3 personnes.</p><button class="btn btn--outline" data-book="Duo / Trio">Choisir</button></div>
     </div>
     <p class="note">Cartes cadeaux disponibles à l’accueil et en ligne · Tarif étudiant -15 % sur présentation d’un justificatif.</p>
@@ -313,7 +342,7 @@
       <li><span>02</span><h3>Réserve ton cours d’essai</h3><p>À partir de 15€, pour découvrir le studio et l’équipe sans engagement.</p></li>
       <li><span>03</span><h3>Arrive 10 min avant</h3><p>Tenue confortable, chaussettes antidérapantes. On s’occupe du reste.</p></li>
     </ol>
-    <div class="center"><button class="btn btn--amber" data-book="Cours d'essai">Trouver mon cours</button></div>
+    <div class="center"><button class="btn btn--dark" data-book="Cours d'essai">Trouver mon cours</button></div>
   </div>
 </section>
 
@@ -367,7 +396,7 @@
       <label>Nom<input name="name" required autocomplete="name"></label>
       <label>Email<input name="email" type="email" required autocomplete="email"></label>
       <label>Message<textarea name="message" rows="4" required></textarea></label>
-      <button class="btn btn--amber" type="submit">Envoyer</button>
+      <button class="btn btn--dark" type="submit">Envoyer</button>
       <p class="form__ok" hidden>Merci ! Nous te répondons sous 24 h.</p>
     </form>
   </div>
@@ -379,7 +408,7 @@
 <footer class="footer">
   <div class="container footer__grid">
     <div>
-      <a href="#top" class="logo logo--light">AMBER<span>KOSSY</span></a>
+      <a href="#top" class="logo logo--light"><img class="logo__mark" src="assets/logo-ak-blanc.png" alt=""><span class="logo__word">Amber Kossy<small>Pilates Studio</small></span></a>
       <p class="footer__claim">Strong feels better in <em>Amber.</em></p>
     </div>
     <div>
@@ -391,7 +420,7 @@
       <p>Nouveaux cours, ateliers et offres en avant-première.</p>
       <form class="newsletter" data-newsletter>
         <input type="email" placeholder="Ton email" required aria-label="Email">
-        <button class="btn btn--amber btn--sm" type="submit">S’abonner</button>
+        <button class="btn btn--light btn--sm" type="submit">S’abonner</button>
       </form>
     </div>
   </div>
@@ -425,7 +454,7 @@
       </div>
       <label>Nom<input name="name" required autocomplete="name"></label>
       <label>Email<input type="email" name="email" required autocomplete="email"></label>
-      <button class="btn btn--amber" type="submit">Envoyer ma demande</button>
+      <button class="btn btn--dark" type="submit">Envoyer ma demande</button>
       <p class="form__hint">Nous confirmons ta place par email sous 24 h.</p>
     </form>
     <div class="modal__ok" hidden>
