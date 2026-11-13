@@ -1,5 +1,5 @@
 /* Service worker Amber Kossy : site consultable hors-ligne une fois installé */
-const CACHE = 'amber-kossy-v3';
+const CACHE = 'amber-kossy-v4';
 const CORE = ['./', './index.html', './styles.css', './script.js', './manifest.webmanifest',
   './assets/logo-ak-blanc.png', './assets/logo-ak-noir.png', './assets/texture/gris-ak.jpg', './assets/texture/gris-ak-fonce.jpg',
   './assets/studio/hero-poster.jpg', './assets/favicon-192.png'];
