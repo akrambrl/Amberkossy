@@ -75,7 +75,7 @@
         <span class="slot__time">${label(time)}</span>
         <span class="slot__name">Pilates Reformer</span>
         <span class="slot__level">${moment(time)}</span>
-        <button class="link-btn" data-book="Pilates Reformer" data-book-day="${activeDay}" data-book-time="${time}">Réserver →</button>
+        <a class="link-btn" href="${BOOKING_URL}" target="_blank" rel="noopener" data-book>Réserver →</a>
       </div>`).join('');
   };
   daysEl.addEventListener('click', e => {
@@ -85,13 +85,8 @@
   renderSchedule();
 
   /* ===== Réservation : tous les boutons « Réserver » ouvrent bsport ===== */
-  document.addEventListener('click', e => {
-    const b = e.target.closest('[data-book]');
-    if (!b) return;
-    e.preventDefault();
-    setDrawer(false);
-    window.open(BOOKING_URL, '_blank', 'noopener');
-  });
+  // Ce sont de vrais liens <a href> : ils marchent même si un navigateur bloque JavaScript ou les fenêtres.
+  document.addEventListener('click', e => { if (e.target.closest('[data-book]')) setDrawer(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setDrawer(false); });
 
   /* Contact form */

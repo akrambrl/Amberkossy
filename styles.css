@@ -404,3 +404,7 @@ button, a { touch-action: manipulation; }
 .chip--static { cursor: default; background: rgba(255,255,255,.5); }
 @media (max-width: 1080px) { .prices--2, .prices--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .prices-intro { margin: 0 0 8px; font-size: 14px; } }
+
+/* Les boutons « Réserver » sont de vrais liens */
+a.link-btn, a.tabbar__book, a.btn { text-decoration: none; }
+a.link-btn { display: inline-block; }

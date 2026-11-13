@@ -1,6 +1,6 @@
 /* Service worker Amber Kossy : site consultable hors-ligne une fois installé */
-const CACHE = 'amber-kossy-v4';
-const CORE = ['./', './index.html', './styles.css', './script.js', './manifest.webmanifest',
+const CACHE = 'amber-kossy-v5';
+const CORE = ['./', './index.html', './manifest.webmanifest',
   './assets/logo-ak-blanc.png', './assets/logo-ak-noir.png', './assets/texture/gris-ak.jpg', './assets/texture/gris-ak-fonce.jpg',
   './assets/studio/hero-poster.jpg', './assets/favicon-192.png'];
 
@@ -20,11 +20,12 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin || req.headers.has('range')) return;
   // Pages : réseau d'abord, cache en secours
-  if (req.mode === 'navigate') {
+  const isCode = /\.(css|js|webmanifest)(\?|$)/.test(new URL(req.url).pathname + new URL(req.url).search);
+  if (req.mode === 'navigate' || isCode) {
     e.respondWith(
       fetch(req)
         .then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put(req, copy)); return r; })
-        .catch(() => caches.match(req).then(r => r || caches.match('./index.html')))
+        .catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('./index.html')))
     );
     return;
   }
