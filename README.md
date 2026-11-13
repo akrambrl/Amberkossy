@@ -23,5 +23,4 @@ python3 -m http.server 8000
 - Adresse, téléphone, email (`contact@amberkossy.fr`, aussi dans `STUDIO_EMAIL` de `script.js`), Instagram
 - Témoignages (contenus d'exemple)
 - Médias du studio : `assets/studio/` (photos), `assets/video/` (vidéo d'accueil + galerie), logo AK dans `assets/logo-ak-noir.png` / `logo-ak-blanc.png`
-- Reste une photo libre de droits (Unsplash, `assets/img/`) : carte Mama Flow — à remplacer par une photo du studio
 - Le formulaire de contact ouvre un email pré-rempli vers `contact@amberkossy.fr`.
