@@ -108,7 +108,7 @@
       <p>Chez Amber Kossy, on pratique le Pilates comme on l’aime : exigeant, précis et bienveillant. Sur le tapis ou sur Reformer, en groupe ou en privé, chaque séance est pensée pour renforcer le corps en profondeur et repartir plus légère.</p>
       <div class="stats">
         <div><strong>9</strong><span>prestations</span></div>
-        <div><strong>45+</strong><span>cours / semaine</span></div>
+        <div><strong>31</strong><span>cours / semaine</span></div>
         <div><strong>10</strong><span>pers. max / cours</span></div>
       </div>
     </div>
@@ -298,19 +298,12 @@
         <h2 class="title">Le <em>planning</em> de la semaine</h2>
       </div>
       <div class="filters" aria-label="Filtrer le planning">
-        <select class="select" data-schedule-filter aria-label="Type de cours">
-          <option value="all">Tous les cours</option>
-          <option>Mat Pilates</option>
-          <option>Reformer</option>
-          <option>Amber Kossy Sculpt</option>
-          <option>Prénatal &amp; Postnatal</option>
-          <option>Stretch &amp; Mobility</option>
-        </select>
+        <span class="chip chip--static" aria-hidden="false">31 cours par semaine</span>
       </div>
     </div>
     <div class="days" role="tablist" data-days></div>
     <div class="schedule" data-schedule></div>
-      <p class="note">Les cours privés et duos se réservent à la carte, selon les disponibilités de nos instructrices.</p>
+      <p class="note">Réserve ta place en ligne en quelques secondes. *Voir conditions sur le lien de réservation.</p>
       <div class="planning__cta"><button class="btn btn--dark" data-book>Réserver un cours</button></div>
     </div>
   </div>
@@ -321,37 +314,38 @@
   <div class="container">
     <div class="section__head">
       <div>
-        <p class="eyebrow">Tarifs</p>
+        <p class="eyebrow">Price list</p>
         <h2 class="title">Trouve <em>ta formule</em></h2>
       </div>
-      <div class="toggle" role="tablist" aria-label="Type de pratique">
-        <button class="toggle__btn is-active" data-price-tab="mat">Mat &amp; Stretch</button>
-        <button class="toggle__btn" data-price-tab="reformer">Reformer &amp; Sculpt</button>
-        <button class="toggle__btn" data-price-tab="prive">Privés</button>
+      <div class="toggle" role="tablist" aria-label="Type de formule">
+        <button class="toggle__btn" data-price-tab="decouverte">Découverte</button>
+        <button class="toggle__btn is-active" data-price-tab="ouverture">Ouverture</button>
+        <button class="toggle__btn" data-price-tab="permanents">Permanents</button>
       </div>
     </div>
 
-    <div class="prices" data-swipe data-price-panel="mat">
-      <div class="price"><h3>Cours d’essai</h3><p class="price__amount">15€</p><p>1 cours découverte, valable 1 mois. Première visite uniquement.</p><button class="btn btn--outline" data-book="Cours d'essai Mat">Choisir</button></div>
-      <div class="price"><h3>À l’unité</h3><p class="price__amount">28€</p><p>1 cours collectif, valable 1 mois.</p><button class="btn btn--outline" data-book="Mat — à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">240€</p><p>Soit 24€ le cours. Valable 4 mois.</p><button class="btn btn--light" data-book="Mat — carnet 10">Choisir</button></div>
-      <div class="price"><h3>Illimité</h3><p class="price__amount">149€<small>/mois</small></p><p>Mat &amp; Stretch en illimité. Engagement 3 mois.</p><button class="btn btn--outline" data-book="Mat — illimité">Choisir</button></div>
+    <div class="prices prices--2" data-swipe data-price-panel="decouverte" hidden>
+      <div class="price price--featured"><span class="badge">Pour commencer</span><h3>2 séances</h3><p class="price__amount">39€</p><p>Pour découvrir le studio. Soit 19,50€ la séance.</p><button class="btn btn--light" data-book="Découverte — 2 séances">Choisir</button></div>
+      <div class="price"><h3>1 séance pour 2</h3><p class="price__amount">59€</p><p>Viens avec ton amie, ta sœur ou ton partenaire. Soit 29,50€ par personne.</p><button class="btn btn--outline" data-book="Découverte — 1 séance pour 2">Choisir</button></div>
     </div>
 
-    <div class="prices" data-swipe data-price-panel="reformer" hidden>
-      <div class="price"><h3>Cours d’essai</h3><p class="price__amount">25€</p><p>1 cours découverte Reformer, valable 1 mois.</p><button class="btn btn--outline" data-book="Cours d'essai Reformer">Choisir</button></div>
-      <div class="price"><h3>À l’unité</h3><p class="price__amount">39€</p><p>1 cours Reformer ou Sculpt, valable 1 mois.</p><button class="btn btn--outline" data-book="Reformer — à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Populaire</span><h3>Carnet 10 cours</h3><p class="price__amount">340€</p><p>Soit 34€ le cours. Valable 4 mois.</p><button class="btn btn--light" data-book="Reformer — carnet 10">Choisir</button></div>
-      <div class="price"><h3>Amber Kossy Unlimited</h3><p class="price__amount">229€<small>/mois</small></p><p>Tous les cours collectifs en illimité. Engagement 3 mois.</p><button class="btn btn--outline" data-book="Amber Kossy Unlimited">Choisir</button></div>
+    <div class="prices-intro" data-price-intro="ouverture"><span class="badge badge--inline">Offre d’ouverture</span> Des tarifs mensuels exclusifs pour célébrer l’ouverture du studio.</div>
+    <div class="prices prices--3" data-swipe data-price-panel="ouverture">
+      <div class="price"><h3>4 séances</h3><p class="price__amount">89€<small>/mois</small></p><p>Soit 22,25€ la séance.</p><button class="btn btn--outline" data-book="Ouverture — 4 séances / mois">Choisir</button></div>
+      <div class="price price--featured"><span class="badge">Le plus choisi</span><h3>6 séances</h3><p class="price__amount">119€<small>/mois</small></p><p>Soit 19,83€ la séance.</p><button class="btn btn--light" data-book="Ouverture — 6 séances / mois">Choisir</button></div>
+      <div class="price"><h3>8 séances</h3><p class="price__amount">149€<small>/mois</small></p><p>Soit 18,63€ la séance.</p><button class="btn btn--outline" data-book="Ouverture — 8 séances / mois">Choisir</button></div>
     </div>
 
-    <div class="prices" data-swipe data-price-panel="prive" hidden>
-      <div class="price"><h3>Bilan + 1ʳᵉ séance</h3><p class="price__amount">75€</p><p>Bilan postural et séance privée de 55 min.</p><button class="btn btn--outline" data-book="Bilan privé">Choisir</button></div>
-      <div class="price"><h3>Privé à l’unité</h3><p class="price__amount">85€</p><p>Séance individuelle Mat ou Reformer.</p><button class="btn btn--outline" data-book="Privé à l'unité">Choisir</button></div>
-      <div class="price price--featured"><span class="badge">Meilleur prix</span><h3>Pack 5 privés</h3><p class="price__amount">390€</p><p>Soit 78€ la séance. Valable 3 mois.</p><button class="btn btn--light" data-book="Pack 5 privés">Choisir</button></div>
-      <div class="price"><h3>Duo / Trio</h3><p class="price__amount">110€</p><p>Par séance, à partager à 2 ou 3 personnes.</p><button class="btn btn--outline" data-book="Duo / Trio">Choisir</button></div>
+    <div class="prices" data-swipe data-price-panel="permanents" hidden>
+      <div class="price"><h3>Séance à l’unité</h3><p class="price__amount">35€</p><p>Une séance, sans engagement.</p><button class="btn btn--outline" data-book="Séance à l’unité">Choisir</button></div>
+      <div class="price"><h3>4 séances</h3><p class="price__amount">119€<small>/mois</small></p><p>Soit 29,75€ la séance.</p><button class="btn btn--outline" data-book="4 séances / mois">Choisir</button></div>
+      <div class="price"><h3>6 séances</h3><p class="price__amount">159€<small>/mois</small></p><p>Soit 26,50€ la séance.</p><button class="btn btn--outline" data-book="6 séances / mois">Choisir</button></div>
+      <div class="price"><h3>8 séances</h3><p class="price__amount">199€<small>/mois</small></p><p>Soit 24,88€ la séance.</p><button class="btn btn--outline" data-book="8 séances / mois">Choisir</button></div>
+      <div class="price price--featured"><span class="badge">Liberté totale</span><h3>Illimité</h3><p class="price__amount">249€<small>/mois</small></p><p>Toutes les séances que tu veux, chaque mois.</p><button class="btn btn--light" data-book="Illimité">Choisir</button></div>
+      <div class="price"><h3>Carnet 10 séances</h3><p class="price__amount">269€</p><p>Soit 26,90€ la séance.</p><button class="btn btn--outline" data-book="Carnet 10 séances">Choisir</button></div>
+      <div class="price"><h3>Carnet 20 séances</h3><p class="price__amount">489€</p><p>Soit 24,45€ la séance.</p><button class="btn btn--outline" data-book="Carnet 20 séances">Choisir</button></div>
     </div>
-    <p class="note">Cartes cadeaux disponibles à l’accueil et en ligne · Tarif étudiant -15 % sur présentation d’un justificatif.</p>
+    <p class="note">*Voir conditions sur le lien de réservation.</p>
   </div>
 </section>
 
@@ -365,7 +359,7 @@
     </div>
     <ol class="steps" data-swipe>
       <li><span>01</span><h3>Choisis ta pratique</h3><p>Mat, Reformer ou cours privé : on te conseille selon tes objectifs.</p></li>
-      <li><span>02</span><h3>Réserve ton cours d’essai</h3><p>À partir de 15€, pour découvrir le studio et l’équipe sans engagement.</p></li>
+      <li><span>02</span><h3>Réserve ta découverte</h3><p>2 séances pour 39€, pour découvrir le studio et l’équipe en douceur.</p></li>
       <li><span>03</span><h3>Arrive 10 min avant</h3><p>Tenue confortable, chaussettes antidérapantes. On s’occupe du reste.</p></li>
     </ol>
     <div class="center"><button class="btn btn--dark" data-book="Cours d'essai">Trouver mon cours</button></div>
@@ -400,7 +394,7 @@
       <details><summary>Quelle est la politique d’annulation ?</summary><p>Tu peux annuler gratuitement jusqu’à 12 h avant le cours. Passé ce délai, le cours est décompté de ton carnet ou abonnement.</p></details>
       <details><summary>Puis-je pratiquer enceinte ?</summary><p>Oui, avec l’accord de ton médecin ou de ta sage-femme, dans nos cours Prénatal à partir du 2ᵉ trimestre, ou en cours privé.</p></details>
       <details><summary>Quelle est la différence entre Mat et Reformer ?</summary><p>Le Mat se pratique au sol avec le poids du corps et du petit matériel. Le Reformer utilise une machine à ressorts qui ajoute de la résistance ou de l’assistance : c’est plus varié et souvent plus accessible pour les articulations.</p></details>
-      <details><summary>Proposez-vous des cartes cadeaux ?</summary><p>Oui ! Cours d’essai, carnets ou cours privés : toutes nos formules existent en carte cadeau, valable 12 mois.</p></details>
+      <details><summary>Puis-je venir à deux pour découvrir ?</summary><p>Oui ! L’offre « 1 séance pour 2 » à 59€ te permet de partager ta première séance avec la personne de ton choix.</p></details>
     </div>
   </div>
 </section>
@@ -413,7 +407,7 @@
       <h2 class="title">Viens nous <em>voir</em></h2>
       <div class="contact__info">
         <div><h4>Adresse</h4><p>Amber Kossy Pilates Reformer Studio<br>12 rue des Lumières<br>75011 Paris</p></div>
-        <div><h4>Horaires d’accueil</h4><p>Lun – Ven : 7h – 21h<br>Sam : 8h30 – 14h<br>Dim : 9h30 – 13h</p></div>
+        <div><h4>Horaires des cours</h4><p>Lun · Mar · Jeu : 7h, 8h, 12h30, 18h, 19h, 20h<br>Mer · Ven : 18h, 19h, 20h<br>Sam : 9h, 10h, 11h, 12h<br>Dim : 9h30, 10h30, 11h30</p></div>
         <div><h4>Contact</h4><p><a href="mailto:hello@amberkossy.fr">hello@amberkossy.fr</a><br><a href="tel:+33100000000">01 00 00 00 00</a><br><a href="https://instagram.com/" target="_blank" rel="noopener">@amberkossy</a></p></div>
       </div>
     </div>
@@ -502,8 +496,8 @@
       </label>
       <div class="form__row">
         <label>Date<input type="date" name="date" required></label>
-        <label>Créneau
-          <select name="slot"><option>Matin</option><option>Midi</option><option>Soir</option></select>
+        <label>Horaire
+          <select name="slot" required data-slot-select></select>
         </label>
       </div>
       <label>Nom<input name="name" required autocomplete="name"></label>

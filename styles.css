@@ -172,7 +172,7 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
 .planning__visual span { font-size: 14px; color: var(--muted); }
 .planning__main .section__head { margin-bottom: 32px; }
 .planning__main .days { gap: 6px; }
-.planning__main .slot { grid-template-columns: 76px 1.3fr 1fr 1fr auto; gap: 14px; padding: 16px 20px; }
+.planning__main .slot { grid-template-columns: 76px 1.4fr 1fr auto; gap: 14px; padding: 16px 20px; }
 .planning__main .note { text-align: left; }
 .planning__cta { margin-top: 24px; }
 
@@ -406,3 +406,13 @@ button, a { touch-action: manipulation; }
   .footer { padding-top: 56px; }
   .footer__bottom { flex-direction: column; }
 }
+
+/* Tarifs réels : grilles adaptées + bandeau offre d'ouverture */
+.prices--2 { grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; }
+.prices--3 { grid-template-columns: repeat(3, minmax(0, 340px)); justify-content: center; }
+.prices-intro { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: -16px 0 34px; text-align: center; color: var(--muted); }
+.prices-intro[hidden] { display: none; }
+.badge--inline { position: static; }
+.chip--static { cursor: default; background: rgba(255,255,255,.5); }
+@media (max-width: 1080px) { .prices--2, .prices--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .prices-intro { margin: 0 0 8px; font-size: 14px; } }

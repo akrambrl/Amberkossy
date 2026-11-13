@@ -35,25 +35,24 @@
   $$('[data-price-tab]').forEach(tab => tab.addEventListener('click', () => {
     $$('[data-price-tab]').forEach(t => t.classList.toggle('is-active', t === tab));
     $$('[data-price-panel]').forEach(p => { p.hidden = p.dataset.pricePanel !== tab.dataset.priceTab; });
+    $$('[data-price-intro]').forEach(p => { p.hidden = p.dataset.priceIntro !== tab.dataset.priceTab; });
   }));
 
-  /* ===== Planning ===== */
-  const COACHES = ['Amber Kossy', 'Lina', 'Inès', 'Maëlle', 'Jade'];
-  const T = { mat: 'Mat Pilates', ref: 'Reformer', sculpt: 'Amber Kossy Sculpt', pre: 'Prénatal & Postnatal', stretch: 'Stretch & Mobility' };
-  // [heure, type, niveau, coach index, places restantes]
+  /* ===== Planning : horaires réels du studio (lundi → dimanche) ===== */
   const WEEK = [
-    [['07:15', T.ref, 'Tous niveaux', 0, 2], ['09:30', T.mat, 'Tous niveaux', 2, 6], ['12:30', T.sculpt, 'Intermédiaire', 1, 3], ['18:00', T.ref, 'Débutant', 3, 4], ['19:15', T.mat, 'Intermédiaire', 2, 5], ['20:15', T.stretch, 'Tous niveaux', 4, 8]],
-    [['07:15', T.sculpt, 'Intermédiaire', 1, 1], ['10:00', T.pre, 'Prénatal', 3, 3], ['12:30', T.mat, 'Tous niveaux', 2, 7], ['18:00', T.ref, 'Intermédiaire', 0, 2], ['19:15', T.ref, 'Débutant', 4, 5]],
-    [['07:15', T.ref, 'Débutant', 3, 4], ['09:30', T.stretch, 'Tous niveaux', 4, 9], ['12:30', T.ref, 'Tous niveaux', 0, 0], ['18:00', T.mat, 'Débutant', 2, 6], ['19:15', T.sculpt, 'Intermédiaire', 1, 2], ['20:15', T.mat, 'Avancé', 2, 4]],
-    [['07:15', T.mat, 'Tous niveaux', 2, 8], ['10:00', T.pre, 'Postnatal', 3, 4], ['12:30', T.sculpt, 'Intermédiaire', 1, 3], ['18:00', T.ref, 'Avancé', 0, 1], ['19:15', T.ref, 'Débutant', 4, 6]],
-    [['07:15', T.ref, 'Intermédiaire', 0, 3], ['12:30', T.mat, 'Tous niveaux', 2, 6], ['18:00', T.sculpt, 'Tous niveaux', 1, 2], ['19:15', T.stretch, 'Tous niveaux', 4, 10]],
-    [['09:00', T.ref, 'Débutant', 3, 2], ['10:00', T.mat, 'Tous niveaux', 2, 4], ['11:00', T.sculpt, 'Intermédiaire', 1, 0], ['12:00', T.pre, 'Prénatal', 3, 5]],
-    [['10:00', T.ref, 'Tous niveaux', 0, 3], ['11:00', T.stretch, 'Tous niveaux', 4, 7], ['12:00', T.mat, 'Débutant', 2, 6]],
+    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // lundi
+    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // mardi
+    ['18:00', '19:00', '20:00'],                            // mercredi
+    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // jeudi
+    ['18:00', '19:00', '20:00'],                            // vendredi
+    ['09:00', '10:00', '11:00', '12:00'],                   // samedi
+    ['09:30', '10:30', '11:30'],                            // dimanche
   ];
+  const moment = t => { const h = parseInt(t, 10); return h < 12 ? 'Matin' : h < 15 ? 'Midi' : 'Soir'; };
+  const label = t => t.replace(/^0/, '');
   const DAY_NAMES = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
   const daysEl = $('[data-days]');
   const schedEl = $('[data-schedule]');
-  const filterEl = $('[data-schedule-filter]');
   const today = new Date();
   const mondayOffset = (today.getDay() + 6) % 7;
   let activeDay = mondayOffset;
@@ -69,22 +68,18 @@
       b.classList.toggle('is-active', on);
       b.setAttribute('aria-selected', String(on));
     });
-    const f = filterEl.value;
-    const list = WEEK[activeDay].filter(c => f === 'all' || c[1] === f);
-    schedEl.innerHTML = list.length ? list.map(([time, name, level, coach, spots]) => `
+    schedEl.innerHTML = WEEK[activeDay].map(time => `
       <div class="slot">
-        <span class="slot__time">${time}</span>
-        <span class="slot__name">${name}</span>
-        <span class="slot__level">${level}<span class="slot__spots ${spots <= 2 ? 'is-low' : ''}">${spots === 0 ? 'Complet · liste d’attente' : spots + ' place' + (spots > 1 ? 's' : '') + ' restante' + (spots > 1 ? 's' : '')}</span></span>
-        <span class="slot__coach">avec ${COACHES[coach]}</span>
-        <button class="link-btn" data-book="${name}" data-book-day="${activeDay}">${spots === 0 ? 'Attente →' : 'Réserver →'}</button>
-      </div>`).join('') : '<div class="schedule__empty">Aucun cours de ce type ce jour-là.</div>';
+        <span class="slot__time">${label(time)}</span>
+        <span class="slot__name">Pilates Reformer</span>
+        <span class="slot__level">${moment(time)}</span>
+        <button class="link-btn" data-book="Pilates Reformer" data-book-day="${activeDay}" data-book-time="${time}">Réserver →</button>
+      </div>`).join('');
   };
   daysEl.addEventListener('click', e => {
     const b = e.target.closest('.day'); if (!b) return;
     activeDay = Number(b.dataset.day); renderSchedule();
   });
-  filterEl.addEventListener('change', renderSchedule);
   renderSchedule();
 
   /* ===== Booking modal ===== */
@@ -97,7 +92,18 @@
   const isoDate = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   form.elements.date.min = isoDate(today);
 
-  const openModal = (service, dayIdx) => {
+  // Le choix d'horaire suit le jour de la date choisie
+  const slotSelect = $('[data-slot-select]');
+  const fillSlots = (wanted) => {
+    const v = form.elements.date.value; if (!v) return;
+    const [y, m, d] = v.split('-').map(Number);
+    const idx = (new Date(y, m - 1, d).getDay() + 6) % 7;
+    slotSelect.innerHTML = WEEK[idx].map(t => `<option value="${label(t)}">${label(t)}</option>`).join('');
+    if (wanted && WEEK[idx].includes(wanted)) slotSelect.value = label(wanted);
+  };
+  form.elements.date.addEventListener('change', () => fillSlots());
+
+  const openModal = (service, dayIdx, time) => {
     lastFocus = document.activeElement;
     form.hidden = false; ok.hidden = true; form.reset();
     if (service) {
@@ -106,8 +112,12 @@
       else { serviceSelect.add(new Option(service, service, true, true)); }
     }
     const d = new Date(today);
-    if (dayIdx !== undefined) d.setDate(today.getDate() - mondayOffset + Number(dayIdx));
-    form.elements.date.value = isoDate(d < today ? today : d);
+    if (dayIdx !== undefined) {
+      d.setDate(today.getDate() - mondayOffset + Number(dayIdx));
+      if (Number(dayIdx) < mondayOffset) d.setDate(d.getDate() + 7); // jour déjà passé : semaine suivante
+    }
+    form.elements.date.value = isoDate(d);
+    fillSlots(time);
     setDrawer(false);
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
@@ -123,7 +133,7 @@
 
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-book]');
-    if (b) { e.preventDefault(); openModal(b.dataset.book || '', b.dataset.bookDay); }
+    if (b) { e.preventDefault(); openModal(b.dataset.book || '', b.dataset.bookDay, b.dataset.bookTime); }
     if (e.target.closest('[data-modal-close]')) closeModal();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); setDrawer(false); } });
@@ -131,7 +141,7 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
-    const body = `Bonjour,\n\nJe souhaite réserver :\n- Prestation : ${data.service}\n- Date : ${data.date}\n- Créneau : ${data.slot}\n\nNom : ${data.name}\nEmail : ${data.email}`;
+    const body = `Bonjour,\n\nJe souhaite réserver :\n- Prestation : ${data.service}\n- Date : ${data.date}\n- Horaire : ${data.slot}\n\nNom : ${data.name}\nEmail : ${data.email}`;
     window.location.href = `mailto:${STUDIO_EMAIL}?subject=${encodeURIComponent('Réservation — ' + data.service)}&body=${encodeURIComponent(body)}`;
     $('[data-ok-service]', ok).textContent = data.service;
     form.hidden = true; ok.hidden = false;
