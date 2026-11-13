@@ -69,7 +69,7 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
 .header.is-scrolled .logo__mark--light { display: none; }
 .header.is-scrolled .logo__mark--dark { display: block; }
 .logo__word { display: flex; flex-direction: column; font-size: 13px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; line-height: 1.2; }
-.logo__word small { font-size: 9.5px; letter-spacing: .42em; font-weight: 400; opacity: .7; margin-top: 3px; }
+.logo__word small { font-size: 9px; letter-spacing: .28em; font-weight: 400; opacity: .7; margin-top: 3px; }
 .header:not(.is-scrolled) .btn--dark { background: #fff; color: var(--ink); }
 .drawer .btn--dark { background: #fff; color: var(--ink); }
 .nav { display: flex; gap: 32px; }
@@ -327,8 +327,8 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
   .stats strong { font-size: 38px; }
   .hero__scroll { display: none; }
   .header .btn--sm { padding: 10px 14px; font-size: 11px; letter-spacing: .1em; }
-  .logo__word { display: none; }
-  .logo__mark { height: 40px; }
+  .header .logo__word { display: none; }
+  .header .logo__mark { height: 40px; }
   .modal__panel { padding: 34px 22px; }
 }
 .prices[hidden] { display: none; }

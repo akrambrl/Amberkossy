@@ -1,4 +1,4 @@
-# Amber Kossy — Pilates Studio
+# Amber Kossy — Pilates Reformer Studio
 
 Site vitrine statique (HTML / CSS / JS, sans dépendance) inspiré de la structure de rougepilates.com.
 
