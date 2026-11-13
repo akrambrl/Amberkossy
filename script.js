@@ -3,6 +3,8 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const STUDIO_EMAIL = 'contact@amberkossy.fr';
+  // Page de réservation bsport du studio (formules et réservation des cours)
+  const BOOKING_URL = 'https://backoffice.bsport.io/m/AMBER%20KOSSY/6905/pass/?tabSelected=1&index=1';
 
   /* Header on scroll */
   const header = $('.header');
@@ -82,70 +84,15 @@
   });
   renderSchedule();
 
-  /* ===== Booking modal ===== */
-  const modal = $('[data-modal]');
-  const form = $('[data-book-form]');
-  const ok = $('.modal__ok', modal);
-  const serviceSelect = form.elements.service;
-  let lastFocus = null;
-
-  const isoDate = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  form.elements.date.min = isoDate(today);
-
-  // Le choix d'horaire suit le jour de la date choisie
-  const slotSelect = $('[data-slot-select]');
-  const fillSlots = (wanted) => {
-    const v = form.elements.date.value; if (!v) return;
-    const [y, m, d] = v.split('-').map(Number);
-    const idx = (new Date(y, m - 1, d).getDay() + 6) % 7;
-    slotSelect.innerHTML = WEEK[idx].map(t => `<option value="${label(t)}">${label(t)}</option>`).join('');
-    if (wanted && WEEK[idx].includes(wanted)) slotSelect.value = label(wanted);
-  };
-  form.elements.date.addEventListener('change', () => fillSlots());
-
-  const openModal = (service, dayIdx, time) => {
-    lastFocus = document.activeElement;
-    form.hidden = false; ok.hidden = true; form.reset();
-    if (service) {
-      const opt = [...serviceSelect.options].find(o => o.value === service);
-      if (opt) serviceSelect.value = opt.value;
-      else { serviceSelect.add(new Option(service, service, true, true)); }
-    }
-    const d = new Date(today);
-    if (dayIdx !== undefined) {
-      d.setDate(today.getDate() - mondayOffset + Number(dayIdx));
-      if (Number(dayIdx) < mondayOffset) d.setDate(d.getDate() + 7); // jour déjà passé : semaine suivante
-    }
-    form.elements.date.value = isoDate(d);
-    fillSlots(time);
-    setDrawer(false);
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; document.body.classList.add('modal-open');
-    setTimeout(() => form.elements.name.focus(), 50);
-  };
-  const closeModal = () => {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = ''; document.body.classList.remove('modal-open');
-    lastFocus?.focus?.();
-  };
-
+  /* ===== Réservation : tous les boutons « Réserver » ouvrent bsport ===== */
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-book]');
-    if (b) { e.preventDefault(); openModal(b.dataset.book || '', b.dataset.bookDay, b.dataset.bookTime); }
-    if (e.target.closest('[data-modal-close]')) closeModal();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); setDrawer(false); } });
-
-  form.addEventListener('submit', e => {
+    if (!b) return;
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(form));
-    const body = `Bonjour,\n\nJe souhaite réserver :\n- Prestation : ${data.service}\n- Date : ${data.date}\n- Horaire : ${data.slot}\n\nNom : ${data.name}\nEmail : ${data.email}`;
-    window.location.href = `mailto:${STUDIO_EMAIL}?subject=${encodeURIComponent('Réservation — ' + data.service)}&body=${encodeURIComponent(body)}`;
-    $('[data-ok-service]', ok).textContent = data.service;
-    form.hidden = true; ok.hidden = false;
+    setDrawer(false);
+    window.open(BOOKING_URL, '_blank', 'noopener');
   });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setDrawer(false); });
 
   /* Contact form */
   const contact = $('[data-contact-form]');

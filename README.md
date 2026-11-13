@@ -10,7 +10,7 @@ Site vitrine statique (HTML / CSS / JS, sans dépendance) inspiré de la structu
 - **Planning** de la semaine (onglets par jour + filtre par cours) — données dans `script.js` (`WEEK`)
 - **Tarifs** par onglets (Mat & Stretch / Reformer & Sculpt / Privés)
 - **Nouveau ?** (3 étapes), **Témoignages**, **FAQ**, **Contact**, infolettre
-- **Modale de réservation** sur tous les boutons « Réserver »
+- Tous les boutons « Réserver » ouvrent la page de réservation **bsport** (`BOOKING_URL` dans `script.js`)
 
 ## Lancer en local
 Ouvrir `index.html` dans un navigateur, ou :
@@ -24,4 +24,4 @@ python3 -m http.server 8000
 - Prix, planning, noms des instructrices, témoignages (contenus d'exemple)
 - Médias du studio : `assets/studio/` (photos), `assets/video/` (vidéo d'accueil + galerie), logo AK dans `assets/logo-ak-noir.png` / `logo-ak-blanc.png`
 - Restent en photos libres de droits (Unsplash, `assets/img/`) : Prénatal, Stretch & Mobility, Entreprises — à remplacer par des photos du studio
-- Les formulaires ouvrent un email pré-rempli ; pour une vraie réservation en ligne, brancher un outil (bsport, Momence, Mindbody…) ou un service de formulaire.
+- Le formulaire de contact ouvre un email pré-rempli vers `contact@amberkossy.fr`.
