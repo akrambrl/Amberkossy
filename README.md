@@ -4,11 +4,11 @@ Site vitrine statique (HTML / CSS / JS, sans dépendance) inspiré de la structu
 
 ## Pages / sections
 - **Hero** + bandeau défilant
-- **Prestations** (filtrables) : Mat Pilates, Reformer, Amber Sculpt, Prénatal & Postnatal, Stretch & Mobility, Cours privés, Duo & Trio, Formation instructeur, Entreprises & événements
+- **Prestations** : Pilates Reformer (tous niveaux), Mama Flow, Événements
 - **L'approche** du studio
-- **Le studio** : galerie photos + vidéo
-- **Planning** de la semaine (onglets par jour + filtre par cours) — données dans `script.js` (`WEEK`)
-- **Tarifs** par onglets (Mat & Stretch / Reformer & Sculpt / Privés)
+- **Le studio** : galerie de 7 photos du studio
+- **Planning** de la semaine (horaires réels, onglets par jour) — données dans `script.js` (`WEEK`)
+- **Tarifs** par onglets (Découverte / Offre d'ouverture / Tarifs permanents)
 - **Nouveau ?** (3 étapes), **Témoignages**, **FAQ**, **Contact**, infolettre
 - Tous les boutons « Réserver » ouvrent la page de réservation **bsport** (`BOOKING_URL` dans `script.js`)
 
@@ -21,7 +21,7 @@ python3 -m http.server 8000
 
 ## À personnaliser
 - Adresse, téléphone, email (`contact@amberkossy.fr`, aussi dans `STUDIO_EMAIL` de `script.js`), Instagram
-- Prix, planning, noms des instructrices, témoignages (contenus d'exemple)
+- Témoignages (contenus d'exemple)
 - Médias du studio : `assets/studio/` (photos), `assets/video/` (vidéo d'accueil + galerie), logo AK dans `assets/logo-ak-noir.png` / `logo-ak-blanc.png`
-- Restent en photos libres de droits (Unsplash, `assets/img/`) : Prénatal, Stretch & Mobility, Entreprises — à remplacer par des photos du studio
+- Reste une photo libre de droits (Unsplash, `assets/img/`) : carte Mama Flow — à remplacer par une photo du studio
 - Le formulaire de contact ouvre un email pré-rempli vers `contact@amberkossy.fr`.

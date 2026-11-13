@@ -40,49 +40,6 @@
     $$('[data-price-intro]').forEach(p => { p.hidden = p.dataset.priceIntro !== tab.dataset.priceTab; });
   }));
 
-  /* ===== Planning : horaires réels du studio (lundi → dimanche) ===== */
-  const WEEK = [
-    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // lundi
-    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // mardi
-    ['18:00', '19:00', '20:00'],                            // mercredi
-    ['07:00', '08:00', '12:30', '18:00', '19:00', '20:00'], // jeudi
-    ['18:00', '19:00', '20:00'],                            // vendredi
-    ['09:00', '10:00', '11:00', '12:00'],                   // samedi
-    ['09:30', '10:30', '11:30'],                            // dimanche
-  ];
-  const moment = t => { const h = parseInt(t, 10); return h < 12 ? 'Matin' : h < 15 ? 'Midi' : 'Soir'; };
-  const label = t => t.replace(/^0/, '');
-  const DAY_NAMES = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-  const daysEl = $('[data-days]');
-  const schedEl = $('[data-schedule]');
-  const today = new Date();
-  const mondayOffset = (today.getDay() + 6) % 7;
-  let activeDay = mondayOffset;
-
-  daysEl.innerHTML = DAY_NAMES.map((d, i) => {
-    const date = new Date(today); date.setDate(today.getDate() - mondayOffset + i);
-    return `<button class="day" role="tab" data-day="${i}"><strong>${d}</strong><small>${date.getDate()}/${String(date.getMonth() + 1).padStart(2, '0')}</small></button>`;
-  }).join('');
-
-  const renderSchedule = () => {
-    $$('.day', daysEl).forEach(b => {
-      const on = Number(b.dataset.day) === activeDay;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-selected', String(on));
-    });
-    schedEl.innerHTML = WEEK[activeDay].map(time => `
-      <div class="slot">
-        <span class="slot__time">${label(time)}</span>
-        <span class="slot__name">Pilates Reformer</span>
-        <span class="slot__level">${moment(time)}</span>
-        <a class="link-btn" href="${BOOKING_URL}" target="_blank" rel="noopener" data-book>Réserver →</a>
-      </div>`).join('');
-  };
-  daysEl.addEventListener('click', e => {
-    const b = e.target.closest('.day'); if (!b) return;
-    activeDay = Number(b.dataset.day); renderSchedule();
-  });
-  renderSchedule();
 
   /* ===== Réservation : tous les boutons « Réserver » ouvrent bsport ===== */
   // Ce sont de vrais liens <a href> : ils marchent même si un navigateur bloque JavaScript ou les fenêtres.
@@ -150,7 +107,7 @@
   }
 
   /* Year */
-  $('[data-year]').textContent = today.getFullYear();
+  $('[data-year]').textContent = new Date().getFullYear();
 
   /* Reveal on scroll */
   const targets = $$('.section__head, .card, .price, .steps li, .review, .intro__grid > *, .approach__grid > *, .faq details, .contact__grid > *');
