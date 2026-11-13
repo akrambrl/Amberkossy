@@ -261,15 +261,11 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
 
 /* Gallery */
 .section__aside { max-width: 420px; color: var(--muted); margin: 0; }
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 16px; grid-template-areas:
-  "salle mono poignee barre"
-  "salle mono sangles ressorts"; }
-.gallery__item { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--sand); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.gallery__item { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--sand); aspect-ratio: 3 / 4; }
 .gallery__item img, .gallery__item video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
 .gallery__item:hover img, .gallery__item:hover video { transform: scale(1.04); }
 .gallery__item--video { border-radius: 999px 999px var(--radius) var(--radius); }
-.g-salle { grid-area: salle; } .g-mono { grid-area: mono; } .g-poignee { grid-area: poignee; }
-.g-cours { grid-area: cours; } .g-barre { grid-area: barre; } .g-sangles { grid-area: sangles; } .g-ressorts { grid-area: ressorts; }
 
 /* Reveal animation */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
@@ -292,8 +288,7 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
   .prices { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 820px) {
-  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 12px; grid-template-areas:
-    "salle salle" "mono poignee" "mono barre" "sangles ressorts"; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .intro__grid, .approach__grid, .contact__grid, .footer__grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .approach__img { aspect-ratio: 1; max-height: 460px; }
   .steps, .reviews { grid-template-columns: 1fr; }
