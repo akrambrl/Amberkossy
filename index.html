@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#131313">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -262,7 +267,15 @@
 
 <!-- ============ PLANNING ============ -->
 <section class="section" id="planning">
-  <div class="container">
+  <div class="container planning__grid">
+    <figure class="planning__visual">
+      <img src="assets/studio/reservation-app.jpg" alt="Réservation d’un cours Amber Kossy depuis l’application" loading="lazy">
+      <figcaption>
+        <strong>Réserve en quelques secondes</strong>
+        <span>Choisis ton cours, ton créneau, et c’est réservé.</span>
+      </figcaption>
+    </figure>
+    <div class="planning__main">
     <div class="section__head">
       <div>
         <p class="eyebrow">Horaire</p>
@@ -281,7 +294,9 @@
     </div>
     <div class="days" role="tablist" data-days></div>
     <div class="schedule" data-schedule></div>
-    <p class="note">Les cours privés et duos se réservent à la carte, selon les disponibilités de nos instructrices.</p>
+      <p class="note">Les cours privés et duos se réservent à la carte, selon les disponibilités de nos instructrices.</p>
+      <div class="planning__cta"><button class="btn btn--dark" data-book>Réserver un cours</button></div>
+    </div>
   </div>
 </section>
 
