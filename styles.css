@@ -87,8 +87,8 @@ em { font-family: var(--sans); font-style: normal; font-weight: 300; color: var(
 
 /* Hero — vidéo plein écran */
 .hero { position: relative; height: 100svh; min-height: 560px; display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: #0d0d0d url('assets/studio/hero-poster.jpg') center 30%/cover no-repeat; }
-.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.12) 30%, rgba(0,0,0,.2) 55%, rgba(0,0,0,.8) 100%), linear-gradient(90deg, rgba(0,0,0,.45), transparent 65%); }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.85) 100%), linear-gradient(90deg, rgba(0,0,0,.5), transparent 70%); }
 .hero__inner { position: relative; width: min(1320px, 100% - 32px); margin: 0 auto; padding-bottom: clamp(72px, 11vh, 130px); }
 .hero__title { font-size: clamp(46px, 8.4vw, 124px); font-weight: 700; text-transform: uppercase; letter-spacing: -.04em; line-height: .94; margin-bottom: 26px; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
 .hero__title em { color: rgba(255,255,255,.82); font-weight: 300; }
