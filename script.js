@@ -18,6 +18,7 @@
     drawer.setAttribute('aria-hidden', String(!open));
     burger.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('drawer-open', open);
   };
   burger.addEventListener('click', () => setDrawer(true));
   $('[data-menu-close]').addEventListener('click', () => setDrawer(false));
@@ -110,13 +111,13 @@
     setDrawer(false);
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; document.body.classList.add('modal-open');
     setTimeout(() => form.elements.name.focus(), 50);
   };
   const closeModal = () => {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.style.overflow = ''; document.body.classList.remove('modal-open');
     lastFocus?.focus?.();
   };
 
@@ -153,6 +154,48 @@
     btn.textContent = 'Merci !';
     e.target.reset();
   });
+
+  /* ===== Mobile « app » ===== */
+  // Onglet actif de la barre du bas selon la section visible
+  const tabs = $$('.tabbar__item');
+  const tabSections = tabs.map(t => document.getElementById(t.dataset.tab) || document.body);
+  const setActiveTab = () => {
+    const y = window.scrollY + window.innerHeight * 0.35;
+    let current = tabs[0];
+    tabSections.forEach((sec, i) => { if (sec.offsetTop <= y) current = tabs[i]; });
+    tabs.forEach(t => t.classList.toggle('is-active', t === current));
+  };
+  window.addEventListener('scroll', setActiveTab, { passive: true });
+  setActiveTab();
+
+  // Points de pagination sous les carrousels
+  $$('[data-swipe]').forEach(track => {
+    const dots = document.createElement('div');
+    dots.className = 'swipe-dots';
+    dots.setAttribute('aria-hidden', 'true');
+    track.after(dots);
+    const items = () => [...track.children].filter(c => !c.classList.contains('is-hidden'));
+    const update = () => {
+      const list = items(); if (!list.length || !list[0].offsetWidth) return;
+      const i = Math.round(track.scrollLeft / (list[0].offsetWidth + 14));
+      [...dots.children].forEach((d, k) => d.classList.toggle('is-active', k === Math.min(i, list.length - 1)));
+    };
+    const build = () => { dots.innerHTML = items().map(() => '<span></span>').join(''); dots.hidden = track.hidden; update(); };
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    // Reconstruit les points seulement quand un filtre ou un onglet change ce qui est affiché
+    new MutationObserver(muts => {
+      const relevant = muts.some(m => m.attributeName === 'hidden' ||
+        (m.oldValue || '').includes('is-hidden') !== m.target.classList.contains('is-hidden'));
+      if (relevant) { track.scrollLeft = 0; build(); }
+    }).observe(track, { attributes: true, subtree: true, attributeFilter: ['hidden', 'class'], attributeOldValue: true });
+    build();
+  });
+
+  // Application installable (et consultable hors-ligne) une fois le site en ligne en HTTPS
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
 
   /* Year */
   $('[data-year]').textContent = today.getFullYear();
