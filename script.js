@@ -2,7 +2,7 @@
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const STUDIO_EMAIL = 'hello@amberkossy.fr';
+  const STUDIO_EMAIL = 'contact@amberkossy.fr';
 
   /* Header on scroll */
   const header = $('.header');
