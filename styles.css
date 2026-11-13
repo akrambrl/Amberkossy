@@ -418,3 +418,12 @@ a.link-btn { display: inline-block; }
 .booking__steps li { display: flex; align-items: center; gap: 14px; font-weight: 600; letter-spacing: .04em; }
 .booking__steps span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; font-size: 14px; font-weight: 500; flex: 0 0 auto; }
 .booking .note { text-align: left; }
+
+/* Réseaux sociaux */
+.socials { display: flex; gap: 10px; margin-top: 24px; }
+.socials a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); color: #fff; transition: background .2s, color .2s; }
+.socials a:hover { background: #fff; color: var(--ink); }
+.socials svg { width: 20px; height: 20px; }
+.socials--drawer { margin-top: 8px; }
+.drawer { overflow-y: auto; gap: 24px; padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+.drawer nav { gap: 12px; }
